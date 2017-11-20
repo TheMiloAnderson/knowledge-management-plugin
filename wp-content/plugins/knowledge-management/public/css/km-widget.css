@@ -1,0 +1,85 @@
+#postTagList {
+	margin-left:15px;
+	font-size:15px;
+}
+#tagFilterHideShow {
+	float:left;
+	display:none;
+}
+div.tagItem {
+	margin-bottom:2px;
+}
+#group {
+	width: 80px; 
+	height: 15px; 
+	float: left; 
+	margin-right:3px; 
+	margin-top:3px; 
+	line-height:1;
+}
+#group div {
+	background-color:#ddd; 
+	color:black; 
+	line-height:0.9; 
+	font-size:.95em;
+}
+#postTagList span {
+	line-height:1;
+}
+#postTagAdd {
+	width: 58px;
+	margin-top: -1px;
+	padding-left: 0px;
+	padding-right: 0px;
+	vertical-align: top;
+}
+.drop {
+	float: left; 
+	margin-right: 6px; 
+	width: 12px; 
+	height: 15px; 
+	border: 1px solid #aaa; 
+	border-radius: 20px; 
+	padding-left: 4px; 
+	padding-bottom: 1px;
+} 
+div.drop:hover {
+	background-color: orange;
+}
+.not {
+	float: left; 
+	width: 10px; 
+	height: 15px; 
+	border: 1px solid #aaa; 
+	border-radius: 20px 0px 0px 20px; 
+	border-right: 0px; 
+	padding-left: 6px; 
+	padding-bottom: 1px;
+}
+a:hover #not {
+	background-color: orange;
+}
+.or {
+	float: left; 
+	width: 12px; 
+	height: 15px; 
+	border: 1px solid #aaa; 
+	padding-left: 4px; 
+	padding-bottom: 1px;
+}
+a:hover #or {
+	background-color: orange;
+}
+.and {
+	float:left; 
+	width:13px; 
+	height:15px; 
+	border:1px solid #aaa; 
+	border-radius:0px 20px 20px 0px; 
+	border-left:0px; 
+	padding-left:3px; 
+	padding-bottom:1px;
+}
+a:hover #and {
+	background-color: orange;
+}

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -27,6 +26,7 @@
  * @subpackage knowledge-management/includes
  * @author     Milo Anderson <themiloanderson@gmail.com>
  */
+
 class Knowledge_Management {
 
 	protected $loader;
@@ -52,7 +52,8 @@ class Knowledge_Management {
         require_once $path . 'admin/class-km-admin.php';
 		require_once $path . 'includes/class-km-loader.php';
         require_once $path . 'includes/class-km-taxonomies.php';
-        require_once $path . 'includes/class-km-posts.php';
+        require_once $path . 'public/class-km-posts.php';
+        require_once $path . 'public/class-km-widget.php';
         require_once $path . 'includes/class-km-i18n.php';
 		require_once $path . 'public/class-km-public.php';
 		$this->loader = new Knowledge_Management_Loader();
@@ -70,20 +71,23 @@ class Knowledge_Management {
         $this->loader->add_action('init', $taxonomies, 'teams');
         $posts = new Knowledge_Management_Posts();
         $this->loader->add_filter('template_include', $posts, 'posts');
+        $km_widget = new KM_Widget();
+        $this->loader->add_action('widgets_init', $km_widget, 'register_km_widgets');
+        $this->loader->add_action('wp_enqueue_scripts', $km_widget, 'add_assets');
     }
 
 	private function define_admin_hooks() {
-		$plugin_admin = 
-            new Knowledge_Management_Admin($this->get_plugin_name(), $this->get_version());
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+//		$plugin_admin = 
+//            new Knowledge_Management_Admin($this->get_plugin_name(), $this->get_version());
+//		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+//		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 	}
 
 	private function define_public_hooks() {
-		$plugin_public = 
-            new Knowledge_Management_Public($this->get_plugin_name(), $this->get_version());
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+//		$plugin_public = 
+//            new Knowledge_Management_Public($this->get_plugin_name(), $this->get_version());
+//		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+//		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 	}
 
 	public function run() {
